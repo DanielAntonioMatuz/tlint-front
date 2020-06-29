@@ -16,6 +16,10 @@ body {
   margin: -20px 0 50px;
 }
 
+.sub-ctn {
+  background-color: #f0506e !important;
+}
+
 h1 {
   font-weight: bold;
   margin: 0;
@@ -4388,7 +4392,7 @@ a>code {
 }
 
 .form-control:focus {
-  color: #8898aa;
+  color: #f0506e!important;
   border-color: rgba(50, 151, 211, .25);
   outline: 0;
   background-color: #fff;
@@ -4511,15 +4515,15 @@ textarea.form-control {
 
 .btn-primary {
   color: #fff;
-  border-color: #5e72e4;
-  background-color: #5e72e4;
+  border-color: #f0506e;
+  background-color: #f0506e;
   box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
 }
 
 .btn-primary:hover {
   color: #fff;
-  border-color: #5e72e4;
-  background-color: #5e72e4;
+  border-color: #f0506e;
+  background-color: #f0506e;
 }
 
 .btn-primary:focus {
@@ -4528,14 +4532,14 @@ textarea.form-control {
 
 .btn-primary:disabled {
   color: #fff;
-  border-color: #5e72e4;
-  background-color: #5e72e4;
+  border-color: #f0506e;
+  background-color: #f0506e;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active {
   color: #fff;
-  border-color: #5e72e4;
-  background-color: #324cdd;
+  border-color: #f0506e;
+  background-color: #f0506e;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus {
@@ -4544,15 +4548,15 @@ textarea.form-control {
 
 .btn-info {
   color: #fff;
-  border-color: #11cdef;
-  background-color: #11cdef;
+  border-color: #f0506e;
+  background-color: #f0506e;
   box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
 }
 
 .btn-info:hover {
   color: #fff;
-  border-color: #11cdef;
-  background-color: #11cdef;
+  border-color: #f0506e;
+  background-color: #f0506e;
 }
 
 .btn-info:focus {
@@ -4561,14 +4565,14 @@ textarea.form-control {
 
 .btn-info:disabled {
   color: #fff;
-  border-color: #11cdef;
-  background-color: #11cdef;
+  border-color: #f0506e;
+  background-color: #f0506e;
 }
 
 .btn-info:not(:disabled):not(.disabled):active {
   color: #fff;
-  border-color: #11cdef;
-  background-color: #0da5c0;
+  border-color: #f0506e;
+  background-color: #f0506e;
 }
 
 .btn-info:not(:disabled):not(.disabled):active:focus {
@@ -4577,8 +4581,8 @@ textarea.form-control {
 
 .btn-default {
   color: #fff;
-  border-color: #172b4d;
-  background-color: #172b4d;
+  border-color: #f0506e;
+  background-color: #f0506e;
   box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
 }
 
@@ -5263,11 +5267,11 @@ button.bg-white:focus {
 }
 
 .bg-gradient-default {
-  background: linear-gradient(87deg, #172b4d 0, #1a174d 100%) !important;
+  background: linear-gradient(87deg, #f0506e 0, #172b4d 100%) !important;
 }
 
 .bg-gradient-default {
-  background: linear-gradient(87deg, #172b4d 0, #1a174d 100%) !important;
+  background: linear-gradient(87deg, #172b4d 0, #f0506e 100%) !important;
 }
 
 @keyframes floating-lg {
@@ -5889,6 +5893,8 @@ textarea[resize='horizontal'] {
     margin-bottom: 20px;
   }
 }
+
+
 
 
 
