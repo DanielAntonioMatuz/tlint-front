@@ -1,0 +1,65 @@
+<div class="">
+  <h3 class="ctn">{{title}}</h3>
+  <div>
+    <div  aria-label="Page navigation example">
+      <ul class="pagination ctn">
+        <li class="page-item" *ngIf="page > 1"><a [routerLink]="['/users', prev_page]" class="page-link" href="#">anterior</a></li>
+        <li class="page-item" *ngIf="pages != page"><a [routerLink]="['/users', next_page]" class="page-link" href="#">siguiente</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container " *ngFor="let user of users">
+    <ul class="uk-comment-list">
+      <li>
+        <article class="uk-comment uk-comment-primary uk-visible-toggle user-card" tabindex="-1">
+          <header class="uk-comment-header uk-position-relative user-card">
+            <div class="uk-grid-medium uk-flex-middle user-card" uk-grid>
+              <div class="uk-width-auto">
+                <img class="img-profile" *ngIf="!user.image" src="assets/images/profile.png">
+                <img class="img-profile" *ngIf="user.image" src="{{url + 'get-image-user/' + user.image}}">
+              </div>
+              <div class="uk-width-expand">
+                <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">{{user.name + ' ' + user.surname}}</a></h4>
+                <p class="uk-comment-meta uk-margin-remove-top"><a class="uk-link-reset" href="#">@{{user.nick}}</a></p>
+              </div>
+              <div class="actions " *ngIf="user._id != identity._id">
+                <button class=" btn btn-primary  title" (click)="unfollowUser(user._id)" *ngIf="follows.indexOf(user._id)>= 0" (mouseenter)="mouseEnter(user._id)" (mouseleave)="mouseLeave(user._id)">
+                  <button class="btn btn-danger" *ngIf="user._id == followUserOver; else following">
+                    <i  class="fas fa-heart"> </i> No seguir
+                  </button>
+
+                  <ng-template  #following>
+                    <i class="fas  fa-check"> </i> Siguiendo
+                  </ng-template>
+                </button>
+
+                <button (click)="followUser(user._id)" *ngIf="follows.indexOf(user._id) < 0" class="title btn btn-info"><i  class="fas fa-star" > </i>Seguir</button>
+              </div>
+              <div class="actions" *ngIf="user._id == identity._id">
+                <button class=" btn btn-light  title">
+                  <i  class="fas far fa-user"> </i> Mi perfil
+                </button>
+
+              </div>
+            </div>
+
+          </header>
+        </article>
+      </li>
+    </ul>
+
+  </div>
+
+
+
+  <div>
+    <div  aria-label="Page navigation example">
+      <ul class="pagination ctn">
+        <li class="page-item" *ngIf="page > 1"><a [routerLink]="['/users', prev_page]" class="page-link" href="#">anterior</a></li>
+        <li class="page-item" *ngIf="pages != page"><a [routerLink]="['/users', next_page]" class="page-link" href="#">siguiente</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+

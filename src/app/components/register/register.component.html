@@ -1,0 +1,164 @@
+<!--<h1></h1>
+<div class="container" id="container">
+  <div class="form-container sign-in-container">
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+      <h1>Registrarse</h1>
+      <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span>O entra con tu red social favorita</span>
+      <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control" required="required"  placeholder="Nombre" />
+      <span *ngIf="!name.valid && name.touched">
+        Ups... El nombre es obligatorio
+      </span>
+
+      <input type="text" name="surname" #surname="ngModel" [(ngModel)]="user.surname" class="form-control" required="required"  placeholder="Apellido" />
+      <span *ngIf="!surname.valid && surname.touched">
+        Ups... Los apellidos son obligatorios
+      </span>
+
+      <input type="text" name="nick" #nick="ngModel" [(ngModel)]="user.nick" class="form-control" required="required"  placeholder="Nickname" />
+      <span *ngIf="!nick.valid && nick.touched">
+        Tu nickname es necesario
+      </span>
+
+      <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  placeholder="Email" />
+      <span *ngIf="!email.valid && email.touched">
+        Tu email es necesario
+      </span>
+
+      <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" class="form-control" required="required"  placeholder="Password" />
+        <span *ngIf="!password.valid && password.touched">
+        Hay que proteger tu cuenta, la contraseña es necesario
+      </span>
+
+      <button type="submit" value="{{title}}" [disabled]="!registerForm.form.valid" >registrarse</button>
+    </form>
+  </div>
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-right">
+        <h1>Hey tlinter!</h1>
+        <p>¿Ya estás registrado?, entonces inicia sesión y descubramos algo nuevo</p>
+        <button class="ghost" id="signUp">iniciar sesión</button>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>{{title}}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="background-color: #fff;">
+
+<div class="limiter full">
+  <div class="container-login100">
+    <div class="wrap-login100">
+
+      <form class="login100-form validate-form" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+					<span class="login100-form-title p-b-43">
+						Registrate a tlint
+					</span>
+
+        <div class="alert alert-success" role="alert" *ngIf="status == 'success'">
+          Tu cuenta ha sido registrada, <a routerLink="/login">inicia sesion</a>
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="status == 'error'">
+          ¡Ou!, al parecer tu email o nickname ya esta registrado, intentalo de nuevo
+        </div>
+
+        <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control wrap-input100" required="required"  placeholder="Nombre" />
+        <span *ngIf="!name.valid && name.touched">
+          Ups... El nombre es obligatorio
+        </span>
+
+        <input type="text" name="surname" #surname="ngModel" [(ngModel)]="user.surname" class="form-control wrap-input100" required="required"  placeholder="Apellido" />
+        <span *ngIf="!surname.valid && surname.touched">
+          Ups... Los apellidos son obligatorios
+        </span>
+
+        <input type="text" name="nick" #nick="ngModel" [(ngModel)]="user.nick" class="form-control wrap-input100" required="required"  placeholder="Nickname" />
+        <span *ngIf="!nick.valid && nick.touched">
+          Tu nickname es necesario
+        </span>
+
+        <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control wrap-input100" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  placeholder="Email" />
+        <span *ngIf="!email.valid && email.touched">
+          Tu email es necesario
+        </span>
+
+        <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" class="form-control wrap-input100" required="required"  placeholder="Password" />
+        <span *ngIf="!password.valid && password.touched">
+          Hay que proteger tu cuenta, la contraseña es necesario
+        </span>
+
+        <div class="container-login100-form-btn">
+          <button type="submit" class="login100-form-btn" [disabled]="!registerForm.form.valid">
+            Registrarse
+          </button>
+        </div>
+
+        <div class="text-center p-t-46 p-b-20">
+						<span class="txt2">
+							O registrate con
+						</span>
+        </div>
+
+        <div class="login100-form-social flex-c-m">
+          <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+            <i class="fa fa-facebook-f" aria-hidden="true"></i>
+          </a>
+
+          <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+          </a>
+        </div>
+      </form>
+
+      <div class="login100-more" style="background-image: url('assets/images/bg-01.jpg');">
+      </div>
+    </div>
+  </div>
+</div>
+<!--===============================================================================================-->
+<script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/bootstrap/js/popper.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/daterangepicker/moment.min.js"></script>
+<script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

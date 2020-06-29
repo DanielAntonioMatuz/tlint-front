@@ -1,0 +1,83 @@
+.img-profile {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.img-pub{
+  width: 50%!important;
+  height: 50%!important;
+  align-content: center;
+}
+
+.btn-ctn{
+  width: 100%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+display-srn{
+  margin: 300px!important;
+  padding: 300px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+.btn-ch{
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+}
+
+.text-sm-pub{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+}
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #F5F6F7;
+  background-clip: border-box;
+  border: none;
+  border-radius: .25rem;
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 0rem;
+}
+
+.card-pub{
+  margin-bottom: 15px;
+  border-radius: 15px;
+}
+
+div.noticia {
+  width: 100%;
+  padding: 15px;
+}
+
+div.noticia img.izquierda {
+  float: left;
+  margin-right: 15px;
+}
+
+div.noticia img.derecha {
+  float: right;
+  margin-left: 15px;
+}
+
+div.reset {
+  clear: both;
+}
+
+

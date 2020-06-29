@@ -1,0 +1,34 @@
+
+<div class="container mx-auto pub border" id="new-publication">
+    <form #newPubForm='ngForm' (ngSubmit)="onSubmit(newPubForm); sendPublication($event)" class="pub mx-auto">
+      <!-- <fieldset class="uk-fieldset">
+         <div class="uk-margin">
+           <textarea name="text" #text="ngModel" [(ngModel)]="publication.text" required class="uk-textarea" rows="5" placeholder="Textarea"></textarea>
+         </div>
+      <div class="form-group ">
+           <label for="exampleFormControlFile1">Agrega fotos</label>
+           <input type="file" class="form-control-file" id="exampleFormControlFile1">
+         </div>
+        <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
+        <button type="submit" [disabled]="!newPubForm.form.valid" class="uk-button uk-button-danger">Enviar</button>
+      </fieldset>-->
+      <div class="W-100">
+        <div class="input-group ">
+          <div class="input-group-prepend ">
+            <span class="input-group-text"><img class="img-pub " src="{{url + 'get-image-user/' + identity.image}}" alt=""></span>
+          </div>
+          <textarea name="text" #text="ngModel" [(ngModel)]="publication.text" required class="autoExpand form-control pb-scr" placeholder="Cuentanos tu día"></textarea>
+          <div class="input-group-prepend ">
+            <button type="submit" [disabled]="!newPubForm.form.valid" class="btn-pub">Enviar</button>
+          </div>
+        </div>
+        <div class="alert alert-success" *ngIf="status == 'success'">
+          Publicado
+        </div>
+        <div class="alert alert-danger" *ngIf="status == 'error'">
+          Publicacion no enviado
+        </div>
+      </div>
+    </form>
+</div>
+

@@ -1,0 +1,95 @@
+
+.marge {
+  margin: 15px;
+  padding-bottom: 25px;
+
+}
+
+.position {
+  bottom: 0px;
+  position: fixed!important;
+  width: 100%!important;
+
+}
+
+
+.navbar-rd {
+  border-radius: 30px;
+  height: 45px;
+}
+
+.button-margin {
+  margin-left: 5px;
+  margin-right: 15px;
+}
+.uk-button-default {
+  background-color: transparent;
+  color: #333;
+  border: none;
+  background-repeat:no-repeat;
+  background-position:center;
+  padding: 0 0 0 0;
+}
+
+.img-profile {
+  width: 30px!important;
+  height: 30px!important;
+  border-radius: 50%;
+}
+
+.amplify {
+  line-height: 75px;
+  padding-top: 0;
+}
+
+nav {
+ /* position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;*/
+}
+
+.navbar-light .navbar-brand {
+  color: #fff;
+}
+
+.bg-light {
+  background-color: rgba(0,0,0,.875)!important;
+  width: 100%;
+  margin: 0;
+  padding-top: 20px;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.amplify-2 {
+  line-height: 45px;
+  padding-top: 0;
+}
+
+@media screen and (max-width: 980px) {
+  .limite {
+    display: none;
+  }
+}
+
+.bg-custom {
+  background-color: transparent;
+  border: none;
+}
+
+.icon-color {
+  color: #eb624c !important;
+}
+
+@media screen and (max-width: 980px) {
+  .search-m {
+    width:60%!important
+  }
+}
+
+.fijada {
+
+
+}
+

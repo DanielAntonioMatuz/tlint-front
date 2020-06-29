@@ -1,0 +1,75 @@
+
+.marge {
+  margin: 15px;
+  padding-bottom: 25px;
+}
+
+.position {
+  bottom: 0px;
+  position: fixed!important;
+  width: 100%!important;
+
+}
+
+
+.navbar-rd {
+  border-radius: 30px;
+  height: 45px;
+}
+
+.button-margin {
+  margin-left: 5px;
+  margin-right: 15px;
+}
+.uk-button-default {
+  background-color: transparent;
+  color: #333;
+  border: none;
+  background-repeat:no-repeat;
+  background-position:center;
+  padding: 0 0 0 0;
+}
+
+.img-profile {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.amplify {
+  line-height: 75px;
+  padding-top: 0;
+}
+
+.amplify-2 {
+  line-height: 45px;
+  padding-top: 0;
+}
+
+@media screen and (max-width: 1367px) {
+  .limite {
+    display: none;
+  }
+}
+
+.bg-custom {
+  background-color: transparent;
+  border: none;
+}
+
+.icon-color {
+  color: #eb624c !important;
+}
+
+@media screen and (max-width: 480px) {
+  .search-m {
+    width:60%!important
+  }
+}
+
+
+@media screen and (min-height: 1025px) {
+  .limite-scr {
+    display: none;
+  }
+}

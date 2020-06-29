@@ -26,7 +26,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "tlint"
+    }
+  },
+  "defaultProject": "tlint",
+  "cli": {
+    "analytics": false
+  }
 }

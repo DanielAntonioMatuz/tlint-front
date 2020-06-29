@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>{{title}}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="background-color: #fff;">
+
+<div class="limiter full" *ngIf="!identity">
+  <div class="container-login100 ">
+    <div class="wrap-login100">
+
+      <form class="login100-form validate-form" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+					<span class="login100-form-title p-b-43">
+            Iniciar sesion en tlint
+          </span>
+
+        <div class="alert alert-success" role="alert" *ngIf="status == 'success'">
+          Has iniciado sesión con éxito
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="status == 'error'">
+          ¡Ou!, al parecer tu email o contraseña es incorrecto, verificalo
+        </div>
+
+        <input type="email" name="email"  #email="ngModel" [(ngModel)]="user.email"  class="form-control wrap-input100" required="required"  placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+        <span *ngIf="!email.valid && email.touched">
+          Ups... El email no es valido
+        </span>
+
+        <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" class="form-control wrap-input100" required="required"  placeholder="Contraseña" />
+        <span *ngIf="!password.valid && password.touched">
+          Ups... La contraseña no es correcta
+        </span>
+
+        <div class="container-login100-form-btn">
+          <button type="submit" class="login100-form-btn" [disabled]="!loginForm.form.valid">
+            iniciar sesión
+          </button>
+        </div>
+
+        <div class="text-center p-t-46 p-b-20">
+						<span class="txt2">
+							O inicia sesión con
+						</span>
+        </div>
+
+        <div class="login100-form-social flex-c-m">
+          <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+            <i class="fa fa-facebook-f" aria-hidden="true"></i>
+          </a>
+
+          <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+          </a>
+        </div>
+      </form>
+
+      <div class="login100-more" style="background-image: url('assets/images/bg-01.jpg');">
+      </div>
+    </div>
+  </div>
+</div>
+<!--===============================================================================================-->
+<script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/bootstrap/js/popper.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/daterangepicker/moment.min.js"></script>
+<script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+
+</body>
+</html>

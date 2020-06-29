@@ -1,0 +1,39 @@
+<nav class="navbar marge fijada navbar-expand-lg navbar-light bg-light" >
+  <a class="navbar-brand " routerLink="/home">{{title}}</a>
+  <a class="navbar-brand limite " routerLink="/home"> </a>
+  <a class="navbar-brand limite " routerLink="/home">inicio</a>
+  <a class="navbar-brand limite " routerLink="/users">personas</a>
+
+  <form class="mx-2 my-auto d-inline w-100 search-m mx-auto">
+    <div class="input-group">
+      <input type="text" class="form-control navbar-rd border border-right-0" placeholder="Buscar">
+    </div>
+  </form>
+  <a type="button" class="btn text-light bg-custom limite ">
+    <img class="img-profile" >
+  </a>
+  <a type="button" class="btn text-light bg-custom  navbar-nav">
+    <img class="img-profile" src="{{url + 'get-image-user/' + identity.image}}" *ngIf="identity && identity.image">
+    <div uk-dropdown="boundary: .boundary" class="limite">
+      <ul class="uk-nav uk-dropdown-nav ">
+        <li><a routerLink="/profile/{{identity._id}}">Ver tu perfil</a></li>
+        <li><a routerLink="/settings-profile">Configuraciones de cuenta</a></li>
+        <li><a href="#">Enviar comentarios</a></li>
+        <li class="uk-nav-divider"></li>
+        <li><a (click)="logout()">Cerrar sesión</a></li>
+      </ul>
+    </div>
+  </a>
+  <a type="button" class="btn text-light bg-custom limite ">
+    <img class="img-profile" src="../favicon.ico">
+  </a>
+  <a type="" class="btn text-light bg-custom limite">
+    <img class="img-profile" src="../favicon.ico">
+  </a>
+  <a type="button" class="btn text-light bg-custom limite  ">
+  </a>
+  <a type="button" class="btn text-light bg-custom limite ">
+    <img class="img-profile" >
+  </a>
+</nav>
+
