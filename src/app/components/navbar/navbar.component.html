@@ -13,7 +13,9 @@
     <img class="img-profile" >
   </a>
   <a type="button" class="btn text-light bg-custom  navbar-nav">
-    <img class="img-profile" src="{{url + 'get-image-user/' + identity.image}}" *ngIf="identity && identity.image">
+    <div class="circular--portrait">
+      <img class="img-profile" src="{{url + 'get-image-user/' + identity.image}}" *ngIf="identity && identity.image">
+    </div>
     <div uk-dropdown="boundary: .boundary" class="limite">
       <ul class="uk-nav uk-dropdown-nav ">
         <li><a routerLink="/profile/{{identity._id}}">Ver tu perfil</a></li>
@@ -25,10 +27,10 @@
     </div>
   </a>
   <a type="button" class="btn text-light bg-custom limite ">
-    <img class="img-profile" src="../favicon.ico">
+    <i class="fas fa-comment-alt"></i>
   </a>
   <a type="" class="btn text-light bg-custom limite">
-    <img class="img-profile" src="../favicon.ico">
+    <i class="fas fa-bell"></i>
   </a>
   <a type="button" class="btn text-light bg-custom limite  ">
   </a>
@@ -37,3 +39,8 @@
   </a>
 </nav>
 
+<hr class="my-4-b ">
+<hr class="my-4-b ">
+<hr class="my-4-b ">
+<hr class="my-4-b ">
+<hr class="my-4-b ">

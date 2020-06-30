@@ -61,6 +61,21 @@
     </div>
   </div>
 </div>
+
+<div *ngIf="identity">
+  <h1 class="mx-auto txt-title">¡Hola!, ya haz iniciado sesión</h1>
+  <div class="card userIdentify mx-auto" style="width: 18rem;">
+    <img src="{{url + 'get-image-user/' + identity.image}}" class="card-img-top img-profile" alt="...">
+    <div class="card-body">
+      <h5 class="card-title txt-user">{{identity.name + ' ' + identity.surname}}</h5>
+      <p class="card-text txt-user-nick">@{{identity.nick}}</p>
+    </div>
+  </div>
+
+  <button class="login100-form-btn btn-log mx-auto" (click)="logout()">cerrar sesión</button>
+</div>
+
+
 <!--===============================================================================================-->
 <script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

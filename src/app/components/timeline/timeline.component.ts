@@ -3,7 +3,7 @@ import {UserService} from '../../services/user.service';
 import {GLOBAL} from '../../services/global';
 import {Publication} from '../../models/publication';
 import {PublicationService} from '../../services/publication.service';
-import {Router, ActivatedRoute, Params} from '@angular/router';
+import {Router, ActivatedRoute, Params, NavigationEnd} from '@angular/router';
 import * as $ from 'jquery';
 
 
@@ -42,12 +42,18 @@ export class TimelineComponent implements OnInit, DoCheck {
   ngOnInit(): void {
     console.log('Timeline cargado');
     this.getPublication(this.page);
+    this._router.navigate(['/']);
     /*$('.container').infiniteScroll({
       // options
       path: '.pagination__next',
       append: '.post',
       history: false,
     });*/
+
+    this._router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+
   }
 
   ngDoCheck(){

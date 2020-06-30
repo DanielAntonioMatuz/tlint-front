@@ -16,6 +16,15 @@
           <img class="img-profile izquierda" *ngIf="!publication.user.image" src="assets/images/profile.png">
           <aside class="card-title"><small class="text-muted h6">{{publication.user.name + ' ' + publication.user.surname }}</small> <aside class="text-muted card-text text-sm-pub">{{(publication.created_at | amFromUnix) | amLocale: 'es' | amTimeAgo }}</aside></aside>
           <div class="reset"></div>
+          <div class="box ">
+            <input type="checkbox" id="like" class="field-reactions">
+            <button for="like" class="label-reactions">tlints</button>
+            <div class="toolbox"></div>
+              <button class="reaction-like"><i class="fas fa-tablets"></i><span class="legend-reaction">conocerte</span></button>
+              <button class="reaction-love"><i class="fas fa-shoe-prints"></i><span class="legend-reaction">salgamos</span></button>
+              <button class="reaction-haha"><i class="fas fa-american-sign-language-interpreting"></i><span class="legend-reaction">platiquemos</span></button>
+              <button class="reaction-wow"><i class="fas fa-laugh-wink"></i><span class="legend-reaction">genial</span></button>
+            </div>
         </div>
       </div>
     </div>
@@ -23,7 +32,11 @@
   </div>
 </div>
 
-<div class="container btn-ctn mx-auto">
+
+<div class="container btn-ctn mx-auto my-4-b ">
   <button class="uk-button uk-button-danger text-center btn-ch" (click)="viewMore()" *ngIf="!noMore">cargar mas</button>
 </div>
 
+<hr class="my-4 limite">
+<hr class="my-4 limite">
+<hr class="my-4 limite">

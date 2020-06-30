@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../services/user.service';
 import {GLOBAL} from '../services/global';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
@@ -15,6 +16,8 @@ export class SubnavbarComponent implements OnInit {
 
   constructor(
     private _userService: UserService,
+    private _route: ActivatedRoute,
+    private _router: Router,
   ) {
     this.identity = this._userService.getIdentity();
     this.url = GLOBAL.url;
@@ -22,5 +25,7 @@ export class SubnavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
 
 }

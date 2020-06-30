@@ -4,11 +4,12 @@ import {User} from '../../models/users';
 import {UserService} from '../../services/user.service';
 import {Observable} from 'rxjs';
 import {HttpHeaders} from '@angular/common/http';
+import {GLOBAL} from '../../services/global';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.scss'],
   providers: [UserService]
 })
 export class LoginComponent implements OnInit, DoCheck {
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit, DoCheck {
   public status: string;
   public identity;
   public token;
+  public url;
 
   constructor(
     private _route: ActivatedRoute,
@@ -24,6 +26,7 @@ export class LoginComponent implements OnInit, DoCheck {
     private _userService: UserService
   ) {
     this.title = 'Iniciar sesion | tlint';
+    this.url = GLOBAL.url;
     this.user = new User(
       '',
       '',
@@ -116,6 +119,12 @@ export class LoginComponent implements OnInit, DoCheck {
         console.log(<any>error);
       }
     )
+  }
+
+  logout(){
+    localStorage.clear();
+    this.identity = null;
+    this._router.navigate(['/login']);
   }
 
 }

@@ -45,7 +45,7 @@
   padding-top: 0;
 }
 
-@media screen and (min-height: 1025px) {
+@media screen and (min-width: 980px) {
   .limite {
     display: none;
   }

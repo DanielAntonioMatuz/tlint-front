@@ -37,17 +37,42 @@
   border-radius: 50%;
 }
 
+.circular--portrait {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.circular--portrait img {
+  width: 100%;
+  height: auto;
+}
+
 .amplify {
   line-height: 75px;
   padding-top: 0;
 }
 
 nav {
- /* position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 2;*/
+  z-index: 2;
+}
+
+.my-4-b {
+  margin-bottom: 1.3rem !important;
+}
+
+.uk-hr, hr {
+  overflow: visible;
+  text-align: inherit;
+  margin: 0 0 20px 0;
+  border: 0;
+  border-top: 1px solid #fff;
 }
 
 .navbar-light .navbar-brand {
