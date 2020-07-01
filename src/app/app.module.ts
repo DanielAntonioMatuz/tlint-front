@@ -17,6 +17,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PublicationComponent } from './components/publication/publication.component';
 import  {MomentModule} from 'angular2-moment';
 import { ProfileComponent } from './components/profile/profile.component';
+import { PublicationUserComponent } from './components/publication-user/publication-user.component';
+import { FollowingComponent } from './components/following/following.component';
+import { FollowedComponent } from './components/followed/followed.component';
+import {MessagesModule} from './messages/messages.module';
+
+
+
 
 @NgModule({
   declarations: [
@@ -31,16 +38,20 @@ import { ProfileComponent } from './components/profile/profile.component';
     UsersComponent,
     NavbarComponent,
     PublicationComponent,
-    ProfileComponent
+    ProfileComponent,
+    PublicationUserComponent,
+    FollowingComponent,
+    FollowedComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MomentModule
+    MomentModule,
+    MessagesModule
   ],
-  providers: [],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

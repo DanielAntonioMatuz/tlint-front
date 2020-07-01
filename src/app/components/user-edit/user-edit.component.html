@@ -67,7 +67,7 @@
 <div class="main-content">
   <!-- Top navbar -->
   <!-- Header -->
-  <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 200px; background-size: cover; background-position: center top;">
+  <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 300px; background-size: cover; background-position: center top;" [style.background-image]="sanitizeImage(url + 'get-image-user/' + user.imageBackground)" >
     <!-- Mask -->
     <span class="mask bg-gradient-default opacity-8"></span>
     <!-- Header container -->
@@ -81,9 +81,9 @@
     </div>
   </div>
   <!-- Page content -->
-  <div class="container-fluid mt--7">
-    <div class="row">
-      <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+  <div class="container-fluid mt--7" >
+    <div class="row ">
+      <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0 ">
         <div class="card card-profile shadow">
           <div class="row justify-content-center">
             <div class="col-lg-3 order-lg-2">
@@ -126,10 +126,10 @@
                 <i class="ni location_pin mr-2"></i>@{{user.nick}}
               </div>
               <div class="h5 mt-4">
-                <i class="ni business_briefcase-24 mr-2"></i>Estudiente desarrollador
+                <i class="ni business_briefcase-24 mr-2"></i>{{user.description}}
               </div>
               <div>
-                <i class="ni education_hat mr-2"></i>UP Chiapas
+                <i class="ni education_hat mr-2"></i>{{user.location}}
               </div>
               <hr class="my-4">
             </div>
@@ -185,22 +185,40 @@
                       <input type="text" name="surname" #surname="ngModel" [(ngModel)]="user.surname" required="required" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="Jesse">
                     </div>
                   </div>
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="input-username" >Lugar de nacimiento</label>
+                      <input type="text" name="location" #location="ngModel" [(ngModel)]="user.location"  id="input-location" class="form-control form-control-alternative" placeholder="México">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-email">Fecha de nacimiento</label>
+                      <input type="date" name="date" #date="ngModel" [(ngModel)]="user.date" required="required"  id="input-date" class="form-control form-control-alternative" placeholder="jesse@example.com">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-email">Teléfono</label>
+                      <input type="text" name="cellphone" #cellphone="ngModel" [(ngModel)]="user.cellphone"   id="input-cellphone" class="form-control form-control-alternative" placeholder="+52 000 000 0000">
+                    </div>
+                  </div>
                 </div>
               </div>
               <hr class="my-4">
-              <!-- Description
-              <h6 class="heading-small text-muted mb-4">Cuentanos un poco de ti</h6>-->
+              <h6 class="heading-small text-muted mb-4">Cuentanos un poco de ti</h6>
               <div class="pl-lg-4">
-               <!-- <div class="form-group focused">
-                  <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
-                </div>-->
+                <div class="form-group focused">
+                  <textarea  name="description" #description="ngModel" [(ngModel)]="user.description" required="required" rows="4" class="form-control form-control-alternative" placeholder="Cuentale al mundo, quien eres"></textarea>
+                </div>
                 <div class="form-group ">
                   <div class="img-scr mx-auto" *ngIf="user.image">
                     <img class="rounded-circle" src="{{url + 'get-image-user/' + user.image}}">
                   </div>
                   <label for="exampleFormControlFile1">Foto de perfil</label>
-                  <input type="file" class="form-control-file" id="exampleFormControlFile1" (change)="fileChangeEvent($event)">
+                  <input type="file" class="form-control-file" id="exampleFormControlFile" (change)="fileChangeEvent($event)">
                 </div>
+
               </div>
               <div class="mx-auto">
                 <button type="submit" [disabled]="!userEditForm.form.valid"  class="btn btn-info ">Actualizar perfil</button>
@@ -209,6 +227,41 @@
               <hr class="my-4">
               <hr class="my-4">
             </form>
+
+            <form #userEditForm="ngForm" (ngSubmit)="onSubmitBackground()" *ngIf="user.image">
+              <div class="alert alert-success" role="alert" *ngIf="status == 'success'">
+                Se han guardado los cambios
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="status == 'error'">
+                ¡Ou!, no se ha podido guardar los cambios, intentalo nuevamente
+              </div>
+              <h6 class="heading-small text-muted mb-4">Tu foto de portada</h6>
+              <div class="pl-lg-4">
+              </div>
+              <hr class="my-4">
+              <!-- Description
+              <h6 class="heading-small text-muted mb-4">Cuentanos un poco de ti</h6>-->
+              <div class="pl-lg-4">
+                <!-- <div class="form-group focused">
+                   <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+                 </div>-->
+                <div class="form-group ">
+                  <div class="img-scr mx-auto" *ngIf="user.imageBackground">
+                    <img class="rounded-circle" src="{{url + 'get-image-user/' + user.imageBackground}}">
+                  </div>
+                  <label for="exampleFormControlFile1">Foto de portada</label>
+                  <input type="file" class="form-control-file" id="exampleFormControlFile1" (change)="fileChangeEvent($event)">
+                </div>
+
+              </div>
+              <div class="mx-auto">
+                <button type="submit" [disabled]="!userEditForm.form.valid"  class="btn btn-info ">Actualizar perfil</button>
+              </div>
+
+              <hr class="my-4">
+              <hr class="my-4">
+            </form>
+
           </div>
         </div>
       </div>

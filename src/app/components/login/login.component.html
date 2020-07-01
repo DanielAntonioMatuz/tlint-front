@@ -69,10 +69,12 @@
     <div class="card-body">
       <h5 class="card-title txt-user">{{identity.name + ' ' + identity.surname}}</h5>
       <p class="card-text txt-user-nick">@{{identity.nick}}</p>
+      <button class="login100-form-btn btn-log mx-auto" routerLink="/home">ir a home</button>
     </div>
   </div>
-
+  <div class="mx-auto" style="text-align: center">
   <button class="login100-form-btn btn-log mx-auto" (click)="logout()">cerrar sesión</button>
+  </div>
 </div>
 
 

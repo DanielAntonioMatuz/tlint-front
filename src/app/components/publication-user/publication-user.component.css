@@ -108,18 +108,6 @@ div.reset {
   clear: both;
 }
 
-.btn-primary {
-  color: #f0506e;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  outline: none;
-  box-shadow: none;
-}
-
-*+.uk-h1, *+.uk-h2, *+.uk-h3, *+.uk-h4, *+.uk-h5, *+.uk-h6, *+.uk-heading-2xlarge, *+.uk-heading-large, *+.uk-heading-medium, *+.uk-heading-small, *+.uk-heading-xlarge, *+h1, *+h2, *+h3, *+h4, *+h5, *+h6 {
-  margin-top: 15px;
-}
 
 .text-desc, [class*="reaction-"], .field-reactions, .field-reactions:checked:focus ~ .text-desc {
   clip: rect(1px, 1px, 1px, 1px);

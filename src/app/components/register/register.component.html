@@ -59,7 +59,7 @@
 </head>
 <body style="background-color: #fff;">
 
-<div class="limiter full">
+<div class="limiter full" *ngIf="!identity">
   <div class="container-login100">
     <div class="wrap-login100">
 
@@ -101,7 +101,7 @@
         </span>
 
         <div class="container-login100-form-btn">
-          <button type="submit" class="login100-form-btn" [disabled]="!registerForm.form.valid">
+          <button type="submit" class="login100-form-btn " [disabled]="!registerForm.form.valid">
             Registrarse
           </button>
         </div>
@@ -121,11 +121,36 @@
             <i class="fa fa-twitter" aria-hidden="true"></i>
           </a>
         </div>
+        <div class="container-login100-form-btn btn-log mx-auto">
+          <span class="txt2 txt-sup">
+							¿Ya tienes cuenta?
+          </span>
+          <button type="submit" class="login100-form-btn" [disabled]="!registerForm.form.valid">
+            iniciar sesión
+          </button>
+        </div>
+
       </form>
+
 
       <div class="login100-more" style="background-image: url('assets/images/bg-01.jpg');">
       </div>
     </div>
+  </div>
+</div>
+
+<div *ngIf="identity">
+  <h1 class="mx-auto txt-title">¡Hola!, ya haz iniciado sesión</h1>
+  <div class="card userIdentify mx-auto" style="width: 18rem;">
+    <img src="{{url + 'get-image-user/' + identity.image}}" class="card-img-top img-profile" alt="...">
+    <div class="card-body">
+      <h5 class="card-title txt-user">{{identity.name + ' ' + identity.surname}}</h5>
+      <p class="card-text txt-user-nick">@{{identity.nick}}</p>
+      <button class="login100-form-btn btn-log mx-auto" routerLink="/home">ir a home</button>
+    </div>
+  </div>
+  <div class="mx-auto" style="text-align: center">
+    <button class="login100-form-btn btn-log mx-auto" (click)="logout()">cerrar sesión</button>
   </div>
 </div>
 <!--===============================================================================================-->

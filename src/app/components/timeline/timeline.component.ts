@@ -1,10 +1,12 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit, DoCheck, Input } from '@angular/core';
 import {UserService} from '../../services/user.service';
 import {GLOBAL} from '../../services/global';
 import {Publication} from '../../models/publication';
 import {PublicationService} from '../../services/publication.service';
 import {Router, ActivatedRoute, Params, NavigationEnd} from '@angular/router';
 import * as $ from 'jquery';
+import {User} from '../../models/users';
+import {DomSanitizer} from '@angular/platform-browser';
 
 
 @Component({
@@ -25,12 +27,15 @@ export class TimelineComponent implements OnInit, DoCheck {
   public total;
   public pages;
   public itemsPerPage;
+  public profile: User;
+  @Input() user: string;
 
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
     private _userService: UserService,
-    private _publicationService: PublicationService
+    private _publicationService: PublicationService,
+    private _sanitizer: DomSanitizer
   ) {
     this.title = 'Timeline';
     this.identity = this._userService.getIdentity();
@@ -102,19 +107,35 @@ export class TimelineComponent implements OnInit, DoCheck {
     );
   }
 
+
   public noMore = false;
   viewMore(){
-    if(this.publications.length == (this.total)){
+    this.page += 1;
+    if(this.page == this.pages){
       this.noMore = true;
-    } else {
-      this.page += 1;
     }
 
     this.getPublication(this.page, true);
   }
 
-  refresh(event){
+  refresh(event = null){
     this.getPublication(1);
   }
+
+  public sanitizeImage(image: string) {
+    return this._sanitizer.bypassSecurityTrustStyle(`url(${image})`);
+  }
+
+  deletePublication(id){
+    this._publicationService.deletePublication(this.token, id).subscribe(
+      response => {
+        this.refresh()
+      }, error => {
+        console.log(<any>error);
+      }
+
+    );
+  }
+
 
 }

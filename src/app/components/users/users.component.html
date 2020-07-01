@@ -20,7 +20,7 @@
                 <img class="img-profile" *ngIf="user.image" src="{{url + 'get-image-user/' + user.image}}">
               </div>
               <div class="uk-width-expand">
-                <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">{{user.name + ' ' + user.surname}}</a></h4>
+                <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" [routerLink]="['/profile',user._id]">{{user.name + ' ' + user.surname}}</a></h4>
                 <p class="uk-comment-meta uk-margin-remove-top"><a class="uk-link-reset" href="#">@{{user.nick}}</a></p>
               </div>
               <div class="actions " *ngIf="user._id != identity._id">

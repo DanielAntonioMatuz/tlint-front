@@ -35,6 +35,11 @@ export class LoginComponent implements OnInit, DoCheck {
       '',
       '',
       'ROLE_USER',
+      '',
+      '',
+      '',
+      '',
+      '',
       ''
     );
   }

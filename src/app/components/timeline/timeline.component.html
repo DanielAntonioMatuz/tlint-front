@@ -11,10 +11,62 @@
     <div class="card-body ">
       <div class="uk-width-auto">
         <div class="noticia w-75 mx-auto">
-          <h4 class="card-text mx-auto">{{publication.text}}</h4>
-          <img class="img-profile izquierda" *ngIf="publication.user.image" src="{{url + 'get-image-user/' + publication.user.image}}">
+
+
+          <!-- Button trigger modal -->
+          <a type="button" *ngIf="publication.user._id ==identity._id" class="btn btn-primary float-right" data-toggle="modal" href="#exampleModal{{publication._id}}">
+            <i class="far fa-trash-alt"></i>
+          </a>
+
+          <!-- Modal -->
+          <div  class="modal fade" id="exampleModal{{publication._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Borrar publicación</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                 <p>¿Deseas eliminar esta publicación?</p>
+
+                    <div class="card card-pub">
+                      <div class="card-body ">
+                        <div class="uk-width-auto">
+                          <div class="noticia w-75 mx-auto">
+
+                            <h5 class="card-text mx-auto">{{publication.text}}</h5>
+                            <div *ngIf="publication.file" style="align-content: center; text-align: center; justify-content: center">
+                              <img for="imgPub" style="max-height: 500px; text-align: center; margin-bottom: 15px; border-radius: 15px" class="mx-auto" src="{{url + 'get-image-pub/' + publication.file}}" alt="">
+                            </div>
+                            <img class="img-profile izquierda" [routerLink]="['/profile', publication.user._id]" style="outline: none" *ngIf="publication.user.image" src="{{url + 'get-image-user/' + publication.user.image}}">
+                            <img class="img-profile izquierda" *ngIf="!publication.user.image" src="assets/images/profile.png">
+                            <aside class="card-title"><a [routerLink]="['/profile', publication.user._id]" class="text-muted h6">{{publication.user.name + ' ' + publication.user.surname }}</a> <aside class="text-muted card-text text-sm-pub">{{(publication.created_at | amFromUnix) | amLocale: 'es' | amTimeAgo }}</aside></aside>
+                            <div class="reset"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <img *ngIf="!publication.file" src="{{publication.file}}" class="card-img-top img-pub mx-auto" alt="...">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="deletePublication(publication._id)">Sí</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <h5 class="card-text mx-auto">{{publication.text}}</h5>
+          <div *ngIf="publication.file" style="align-content: center; text-align: center; justify-content: center">
+            <img for="imgPub" style="max-height: 500px; text-align: center; margin-bottom: 15px; border-radius: 15px" class="mx-auto" src="{{url + 'get-image-pub/' + publication.file}}" alt="">
+          </div>
+          <img class="img-profile izquierda" [routerLink]="['/profile', publication.user._id]" style="outline: none" *ngIf="publication.user.image" src="{{url + 'get-image-user/' + publication.user.image}}">
           <img class="img-profile izquierda" *ngIf="!publication.user.image" src="assets/images/profile.png">
-          <aside class="card-title"><small class="text-muted h6">{{publication.user.name + ' ' + publication.user.surname }}</small> <aside class="text-muted card-text text-sm-pub">{{(publication.created_at | amFromUnix) | amLocale: 'es' | amTimeAgo }}</aside></aside>
+          <aside class="card-title"><a [routerLink]="['/profile', publication.user._id]" class="text-muted h6">{{publication.user.name + ' ' + publication.user.surname }}</a> <aside class="text-muted card-text text-sm-pub">{{(publication.created_at | amFromUnix) | amLocale: 'es' | amTimeAgo }}</aside></aside>
           <div class="reset"></div>
           <div class="box ">
             <input type="checkbox" id="like" class="field-reactions">
@@ -32,10 +84,11 @@
   </div>
 </div>
 
-
 <div class="container btn-ctn mx-auto my-4-b ">
   <button class="uk-button uk-button-danger text-center btn-ch" (click)="viewMore()" *ngIf="!noMore">cargar mas</button>
 </div>
+
+
 
 <hr class="my-4 limite">
 <hr class="my-4 limite">

@@ -2,6 +2,7 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {User} from '../../models/users';
 import {UserService} from '../../services/user.service';
+import {GLOBAL} from '../../services/global';
 
 @Component({
   selector: 'app-register',
@@ -14,6 +15,7 @@ export class RegisterComponent implements OnInit, DoCheck {
   public user: User;
   public status: string;
   public identity;
+  public url;
 
   constructor(
     // tslint:disable-next-line:variable-name
@@ -24,6 +26,7 @@ export class RegisterComponent implements OnInit, DoCheck {
     private _userService: UserService
   ) {
     this.title = 'Registrarse';
+    this.url = GLOBAL.url;
     // @ts-ignore
     this.user = new User(
       '',

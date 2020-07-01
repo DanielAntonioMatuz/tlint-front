@@ -4,6 +4,7 @@ import {User} from '../../models/users';
 import {UserService} from '../../services/user.service';
 import {UploadService} from '../../services/upload.service';
 import {GLOBAL} from '../../services/global';
+import {DomSanitizer} from '@angular/platform-browser';
 
 
 @Component({
@@ -26,7 +27,8 @@ export class UserEditComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router,
     private _UserService: UserService,
-    private _uploadService: UploadService
+    private _uploadService: UploadService,
+    private _sanitizer: DomSanitizer
   ) {
     this.title = 'Actualizar tu perfil';
     this.user = this._UserService.getIdentity();
@@ -51,7 +53,7 @@ export class UserEditComponent implements OnInit {
           this.status = 'success';
           localStorage.setItem('identity', JSON.stringify(this.user));
           this.identity = this.user;
-
+          console.log('Numero de archivos:' + this.filesToUpload.length);
           //SUBIDA DE IMAGEN DE USUARIO
           this._uploadService.makeFileRequest(this.url+'upload-image-user/'+this.user._id, [], this.filesToUpload, this.token, 'image')
               .then((result: any)=> {
@@ -71,6 +73,38 @@ export class UserEditComponent implements OnInit {
       }
     )
   }
+
+  onSubmitBackground(){
+    console.log(this.user);
+    this._UserService.updateUser(this.user).subscribe(
+      response => {
+        if(!response.user){
+          this.status = 'error';
+        } else {
+          this.status = 'success';
+          localStorage.setItem('identity', JSON.stringify(this.user));
+          this.identity = this.user;
+          console.log('Numero de archivos:' + this.filesToUpload.length + ' ' + this.identity.imageBackground);
+          //SUBIDA DE IMAGEN DE USUARIO
+          this._uploadService.makeFileRequest(this.url+'upload-image-user/'+this.user._id, [], this.filesToUpload, this.token, 'image')
+            .then((result: any)=> {
+              this.user.imageBackground = result.user.image;
+              localStorage.setItem('identity', JSON.stringify(this.user));
+            })
+
+        }
+      },
+      error => {
+        var errorMessage = <any>error;
+        console.log(errorMessage);
+
+        if(errorMessage != null){
+          this.status = 'error';
+        }
+      }
+    )
+  }
+
 
   public filesToUpload: Array<File>;
   fileChangeEvent(fileInput: any){
@@ -117,5 +151,13 @@ export class UserEditComponent implements OnInit {
       }
     )
   }
+
+
+
+    public sanitizeImage(image: string) {
+      return this._sanitizer.bypassSecurityTrustStyle(`url(${this.url + 'get-image-user/' + this.user.imageBackground})`);
+    }
+
+
 
 }

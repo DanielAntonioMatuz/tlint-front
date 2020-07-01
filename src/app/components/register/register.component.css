@@ -534,6 +534,23 @@ iframe {
   width:100%;
   height: 100%;
   position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.btn-log{
+  margin-top: 30px;
+  width: 50%!important;
+  justify-content: center;
+  align-content: center;
+
+}
+
+.txt-sup{
+  margin-bottom: 15px;
 }
 
 /*------------------------------------------------------------------
@@ -739,7 +756,7 @@ input.input100 {
   width: 100%;
   height: 50px;
   border-radius: 10px;
-  background: #6675df;
+  background: #f0506e;
 
   font-family: Montserrat-Bold;
   font-size: 12px;
@@ -755,10 +772,58 @@ input.input100 {
 }
 
 .login100-form-btn:hover {
-  background: #333333;
+  background: #000;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
+.userIdentify {
+  margin-top: 5%;
+  border-radius: 10px;
+  padding-bottom: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 30px;
+  background: #f0506e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-profile {
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.txt-user {
+  text-align: center;
+  padding-bottom: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  color: #FFF;
+}
+
+.txt-title {
+  margin-top: 20%;
+  font-family: 'Montserrat', sans-serif!important;
+  font-size: 30px!important;
+  color: #000;
+  text-align: center;
+}
+
+.txt-user-nick {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  color: #FFF;
+}
+
+.btn-log {
+  margin-top: 25px;
+  background: #000;
+  margin-bottom: 60px;
+  width: 50%!important;
+}
 
 /*------------------------------------------------------------------
 [ Responsive ]*/

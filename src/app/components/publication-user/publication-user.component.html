@@ -1,0 +1,39 @@
+<div class="display-srn">
+
+</div>
+
+<div class="container" *ngFor="let publication of publications">
+
+  <div class="card card-pub">
+    <div class="card-body ">
+      <div class="uk-width-auto">
+        <div class="noticia w-75 mx-auto">
+          <h4 class="card-text mx-auto">{{publication.text}}</h4>
+          <img class="img-profile izquierda" [routerLink]="['/profile', publication.user._id]" *ngIf="publication.user.image" src="{{url + 'get-image-user/' + publication.user.image}}">
+          <img class="img-profile izquierda" [routerLink]="['/profile', publication.user._id]" *ngIf="!publication.user.image" src="assets/images/profile.png">
+          <aside class="card-title"><a [routerLink]="['/profile', publication.user._id]" class="text-muted h6">{{publication.user.name + ' ' + publication.user.surname }}</a> <aside class="text-muted card-text text-sm-pub">{{(publication.created_at | amFromUnix) | amLocale: 'es' | amTimeAgo }}</aside></aside>
+          <div class="reset"></div>
+          <div class="box ">
+            <input type="checkbox" id="like" class="field-reactions">
+            <button for="like" class="label-reactions">tlints</button>
+            <div class="toolbox"></div>
+            <button class="reaction-like"><i class="fas fa-tablets"></i><span class="legend-reaction">conocerte</span></button>
+            <button class="reaction-love"><i class="fas fa-shoe-prints"></i><span class="legend-reaction">salgamos</span></button>
+            <button class="reaction-haha"><i class="fas fa-american-sign-language-interpreting"></i><span class="legend-reaction">platiquemos</span></button>
+            <button class="reaction-wow"><i class="fas fa-laugh-wink"></i><span class="legend-reaction">genial</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img *ngIf="!publication.file" src="{{publication.file}}" class="card-img-top img-pub mx-auto" alt="...">
+  </div>
+</div>
+
+
+<div class="container btn-ctn mx-auto my-4-b " *ngIf="publications.length > 1">
+  <button class="uk-button uk-button-danger text-center btn-ch" (click)="viewMore()" *ngIf="!noMore">cargar mas</button>
+</div>
+
+<hr class="my-4 limite">
+<hr class="my-4 limite">
+<hr class="my-4 limite">

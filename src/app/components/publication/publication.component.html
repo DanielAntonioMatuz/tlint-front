@@ -1,6 +1,6 @@
 
 <div class="container mx-auto pub border" id="new-publication">
-    <form #newPubForm='ngForm' (ngSubmit)="onSubmit(newPubForm); sendPublication($event)" class="pub mx-auto">
+    <form #newPubForm='ngForm' (ngSubmit)="onSubmit(newPubForm, $event);" class="pub mx-auto">
       <!-- <fieldset class="uk-fieldset">
          <div class="uk-margin">
            <textarea name="text" #text="ngModel" [(ngModel)]="publication.text" required class="uk-textarea" rows="5" placeholder="Textarea"></textarea>
@@ -17,7 +17,7 @@
           <div class="input-group-prepend ">
             <span class="input-group-text"><img class="img-pub " src="{{url + 'get-image-user/' + identity.image}}" alt=""></span>
           </div>
-          <textarea name="text" #text="ngModel" [(ngModel)]="publication.text" required class="autoExpand form-control pb-scr" placeholder="Cuentanos tu día"></textarea>
+          <textarea name="text" #text="ngModel" [(ngModel)]="publication.text"  class="autoExpand form-control pb-scr" placeholder="Cuentanos tu día"></textarea>
           <div class="input-group-prepend ">
             <button type="submit" [disabled]="!newPubForm.form.valid" class="btn-pub">Enviar</button>
           </div>
@@ -28,6 +28,36 @@
         <div class="alert alert-danger" *ngIf="status == 'error'">
           Publicacion no enviado
         </div>
+        <div class="box " style="margin-bottom: 5px; margin-top: 0px; min-width: 60px">
+          <input type="checkbox" id="like" class="field-reactions" >
+          <a for="like" style="text-align: center" class="label-reactions mx-auto"><i class="fas fa-camera mx-auto" style="min-height: 5px; min-width: 30px"></i></a>
+          <div class="toolbox"></div>
+          <button  class="reaction-like">
+            <div class="js-upload" uk-form-custom>
+              <input (change)="fileChangeEvent($event)" type="file" multiple>
+              <button  class="uk-button uk-button-default"  tabindex="-1"><i class="fas fa-camera"></i></button>
+            </div>
+          </button>
+          <button class="reaction-love">
+            <div class="js-upload" uk-form-custom>
+              <input type="file" multiple>
+              <button class="uk-button uk-button-default"  tabindex="-1"><i class="fas fa-video"></i></button>
+            </div>
+          </button>
+          <button class="reaction-haha">
+            <div class="js-upload" uk-form-custom>
+              <input type="file" multiple>
+              <button class="uk-button uk-button-default"  tabindex="-1"><i class="fas fa-heart"></i></button>
+            </div>
+          </button>
+          <button class="reaction-wow">
+            <div class="js-upload" uk-form-custom>
+              <input type="file" multiple>
+              <button class="uk-button uk-button-default" type="button" tabindex="-1"><i class="fas fa-camera"></i></button>
+            </div>
+          </button>
+        </div>
+
       </div>
     </form>
 </div>
